@@ -269,7 +269,7 @@ gulp.task('upload', 'Upload zip file to lambda', function (callback) {
 });
 
 gulp.task('watch-test', 'Watch for changed files and run unit tests when a file changes', function () {
-    return gulp.watch(filePaths.unitTestFiles, ['test-local']);
+    return gulp.watch(filePaths.unitTestFiles, ['test-mock']);
 });
 
 gulp.task('watch-lint', 'Watch for changed files and run lint of the file that has changed', function () {

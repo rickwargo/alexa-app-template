@@ -1,0 +1,18 @@
+StoryIntent	what is the {StoryType} story
+StoryIntent	what's the {StoryType} story
+StoryIntent	about the {StoryType} story
+StoryIntent	give me the {StoryType} story
+StoryIntent	tell me the {StoryType} story
+StoryIntent	the {StoryType} story
+StoryIntent	what is a {StoryType} story
+StoryIntent	what's a {StoryType} story
+StoryIntent	about a {StoryType} story
+StoryIntent	give me a {StoryType} story
+StoryIntent	tell me a {StoryType} story
+StoryIntent	a {StoryType} story
+StoryIntent	what is an {StoryType} story
+StoryIntent	what's an {StoryType} story
+StoryIntent	about an {StoryType} story
+StoryIntent	give me an {StoryType} story
+StoryIntent	tell me an {StoryType} story
+StoryIntent	an {StoryType} story

@@ -1,0 +1,6 @@
+STORY_TYPE
+----------
+whole
+complete
+partial
+short
