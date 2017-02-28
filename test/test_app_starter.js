@@ -1,6 +1,14 @@
-/*jslint node: true */
-/*global describe */
-/*global it */
+// Copyright (c) 2015-2017 Rick Wargo. All Rights Reserved.
+//
+// Licensed under the MIT License (the "License"). You may not use this file
+// except in compliance with the License. A copy of the License is located at
+// http://opensource.org/licenses/MIT or in the "LICENSE" file accompanying
+// this file. This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+// OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+// specific language governing permissions and limitations under the License.
+////////////////////////////////////////////////////////////////////////////////
+
+/*global describe, it, beforeEach */
 
 'use strict';
 
@@ -61,11 +69,15 @@ describe('App Starter Tests', function () {
     });
 
     describe('custom slot types', function () {
-        var alexaApp = require('../index');
+        var alexaApp;
+        beforeEach(function () {
+            alexaApp = require('../index');
+        });
         it('should generate the correct representation when one slot type is provided', function () {
             alexaApp.customSlotType('SONG_DRINKS1', 'beer');
 
             var result = JSON.parse(alexaApp.customslottypes());
+            alexaApp.customSlotType('SONG_DRINKS1', null);  // remove testing slot type from alexaApp
             return result.SONG_DRINKS1.should.deep.equal(
                 ['beer']
             );
@@ -74,6 +86,7 @@ describe('App Starter Tests', function () {
             alexaApp.customSlotType('SONG_DRINKS3', ['bourbon', 'scotch', 'beer']);
 
             var result = JSON.parse(alexaApp.customslottypes());
+            alexaApp.customSlotType('SONG_DRINKS3', null);  // remove testing slot type from alexaApp
             return result.SONG_DRINKS3.sort().should.deep.equal(
                 ['beer', 'bourbon', 'scotch']
             );
@@ -83,7 +96,8 @@ describe('App Starter Tests', function () {
             alexaApp.customSlotType('SONG_DRINKS6', ['bourbon', 'scotch', 'beer']);
 
             var result = JSON.parse(alexaApp.customslottypes());
-            return result.SONG_DRINKS3.sort().should.deep.equal(
+            alexaApp.customSlotType('SONG_DRINKS6', null);  // remove testing slot type from alexaApp
+            return result.SONG_DRINKS6.sort().should.deep.equal(
                 ['beer', 'bourbon', 'scotch']
             );
         });
