@@ -30,10 +30,9 @@ var filePaths = {
     lintFiles: ['index.js', 'gulpfile.js', 'lib/**/*.js', 'config/**/*.js', 'test/**/*.js', 'bin/**/*.js', '!lib/playground.js'],
     coverFiles: ['index.js', 'lib/**/*.js', 'config/**/*.js', '!lib/playground.js'],
     unitTestFiles: ['test/**/test_*.js', 'index.js', 'lib/**/*.js', 'config/**/*.js', '!lib/playground.js'],
-    coverTestFiles: ['test/**/test_*.js']
+    coverTestFiles: ['test/**/test_*.js'],
+    server: '../../alexa-app-root/server'   // Change this to reflect where alexa-app-root is installed
 };
-
-var server = require('../../alexa-app-root/server');
 
 gulp.task('default', ['help']);
 
@@ -64,6 +63,7 @@ gulp.task('test-mock', 'Run unit tests against local server **', function () {
 });
 
 gulp.task('test-local', 'Run unit tests against local server **', function () {
+	var server = require(filePaths.server);
     var result,
         envs = testEnvironment('Local'),
         instance = server.start();
@@ -86,6 +86,7 @@ gulp.task('test-lambda', 'Run unit tests against AWS Lambda **', function () {
 });
 
 gulp.task('test-and-cover', 'Show coverage for tested code **', function () {
+	var server = require(filePaths.server);
     var envs = testEnvironment(),
         instance = server.start();
 
