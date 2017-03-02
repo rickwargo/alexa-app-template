@@ -31,6 +31,7 @@ var filePaths = {
     coverFiles: ['index.js', 'lib/**/*.js', 'config/**/*.js', '!lib/playground.js'],
     unitTestFiles: ['test/**/test_*.js', 'index.js', 'lib/**/*.js', 'config/**/*.js', '!lib/playground.js'],
     coverTestFiles: ['test/**/test_*.js'],
+    cleanFiles: ['./dist', './dist.zip', './coverage'],
     server: '../../alexa-app-root/server'   // Change this to reflect where alexa-app-root is installed
 };
 
@@ -194,7 +195,7 @@ gulp.task('build-custom-slot-types', 'Build the custom slot types from source **
 });
 
 gulp.task('clean', 'Clean out the dist folder and remove the compiled zip file', function () {
-    return gulp.src(['./dist', './dist.zip', './coverage'])
+    return gulp.src(filePaths.cleanFiles)
         .pipe(vinylPaths(del));
 });
 
