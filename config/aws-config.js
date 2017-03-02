@@ -4,7 +4,7 @@
 module.exports = {
     region: 'us-east-1',
     profile: 'default',
-    role: 'arn:aws:iam::000000000000:role/alexa-app-template-skill',
+    role: 'arn:aws:iam::123456789012:role/alexa-app-template-skill',
     handler: 'index.handler',
     timeout: 3,
     memorySize: 128,
