@@ -64,7 +64,7 @@ gulp.task('test-mock', 'Run unit tests against local server **', function () {
 });
 
 gulp.task('test-local', 'Run unit tests against local server **', function () {
-	var server = require(filePaths.server);
+    var server = require(filePaths.server);
     var result,
         envs = testEnvironment('Local'),
         instance = server.start();
@@ -87,7 +87,7 @@ gulp.task('test-lambda', 'Run unit tests against AWS Lambda **', function () {
 });
 
 gulp.task('test-and-cover', 'Show coverage for tested code **', function () {
-	var server = require(filePaths.server);
+    var server = require(filePaths.server);
     var envs = testEnvironment(),
         instance = server.start();
 
