@@ -10,7 +10,7 @@ var appConfig = {
 
 // Allow applicationId to be held in separate file
 var appId = require('./applicationid.json');
-appConfig.applicationId = appId;
+appConfig.applicationId = appId.applicationId;
 
 
 // Allow this module to be reloaded by hotswap when changed
