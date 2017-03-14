@@ -204,11 +204,6 @@ gulp.task('make-dist', 'Compile/move javascript files to dist', function () {
         .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('rm-dist-package', 'Removes unnecessary package.json from dist so it does not go to AWS Lambda', function () {
-    return gulp.src(['dist/package.json'])
-        .pipe(vinylPaths(del));
-});
-
 gulp.task('gather-node-mods', 'Install npm packages to dist, ignoring devDependencies', function () {
     return gulp.src('./package.json')
         .pipe(gulp.dest('./dist/'))
@@ -218,7 +213,6 @@ gulp.task('gather-node-mods', 'Install npm packages to dist, ignoring devDepende
 gulp.task('node-mods', 'Install npm packages to dist, ignoring devDependencies', function (callback) {
     return runSequence(
         'gather-node-mods',
-        'rm-dist-package',
         callback
     );
 });
